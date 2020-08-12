@@ -82,11 +82,88 @@
                     <img src="img/logo.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a href="#form" class="a" data-toggle="tooltip" data-html="true" title="or Call us at <br><strong>+91 8299102815</strong>" data-placement="bottom"><button class="btn btn-lg btn-block btn-warning" type="button">Reserve Table</button></a>
+                    <a class="a"><button class="btn btn-lg btn-block btn-warning" type="button" data-toggle="modal" data-target="#reservemodal">Reserve Table</button></a>
                 </div>
             </div>
         </div>
     </header>
+    <div class="modal fade" id="reservemodal" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">RESERVE TABLE</h3>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="form">
+                        <div class="form-group row">
+                            <label for="numguest" class="col-md-2 col-8 col-form-label font-weight-bold">Number of Guests</label>
+                            <div class="col-12 col-md-6">
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">1
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">2
+                                    </label>
+                                </div>
+                                <div class="form-check-inline disabled">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">3
+                                    </label>
+                                </div>
+                                <div class="form-check-inline disabled">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">4
+                                    </label>
+                                </div>
+                                <div class="form-check-inline disabled">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">5
+                                    </label>
+                                </div>
+                                <div class="form-check-inline disabled">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio">6
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="section" class="col-md-2 col-8 col-for-label font-weight-bold">Section</label>
+                            <div class="btn-group btn-group-toggle col-12 col-sm-6" data-toggle="buttons">
+                                <label class="btn btn-success active">
+                                    <input type="radio" name="options" id="nonsmoking" autocomplete="off" checked> Non-Smoking
+                                </label>
+                                <label class="btn btn-danger">
+                                    <input type="radio" name="options" id="smoking" autocomplete="off"> Smoking
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="date" class="col-md-2 col-8 col-for-label font-weight-bold">Date and Time</label>
+                            <div class="col-12 col-sm-3">
+                                <input type="text" class="form-control" id="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="col-12 col-sm-3">
+                                <input type="text" class="form-control" id="time" name="time" placeholder="Time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-auto offset-sm-2">
+                                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-primary btn-lg" type="submit">Reserve</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row row-content">
@@ -120,13 +197,16 @@
                         <li data-target="#mycarousel" data-slide-to="1"></li>
                         <li data-target="#mycarousel" data-slide-to="2"></li>
                     </ol>
+                    <button class="btn btn-danger btn-sm" id="carouselButton">
+                        <span class="fa fa-pause"></span>
+                    </button>
                 </div>
-                    <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
+                <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
             </div>
         </div>
         <div class="row row-content">
@@ -284,7 +364,21 @@
 
     <script>
         $(document).ready(function() {
-            $("[data-toggle='tooltip']").tooltip();
+            $("#mycarousel").carousel( { interval: 1000 } );
+            $("#carouselButton").click(function(){
+                if($("#carouselButton").children("span").hasClass('fa-pause'))
+                    {
+                        $("#mycarousel").carousel('pause');
+                        $("#carouselButton").children("span").removeClass('fa-pause');
+                        $("#carouselButton").children("span").addClass('fa-play');
+                    }
+                else if($("#carouselButton").children("span").hasClass('fa-play'))
+                    {
+                        $("#mycarousel").carousel('cycle');
+                        $("#carouselButton").children("span").removeClass('fa-play');
+                        $("#carouselButton").children("span").addClass('fa-pause');
+                    }
+            });
         });
     </script>
 </body>
