@@ -1,0 +1,50 @@
+.row-header {
+    margin: 0px auto;
+    padding: 20px 0px
+}
+
+.row-content {
+    margin: 0px auto;
+    padding: 30px 0px 30px 0px;
+    border-bottom: 1px ridge #64809b;
+    min-height: 300px
+}
+
+.footer {
+    background-color: #cdb2e0;
+    padding: 20px 0px 20px 0px
+}
+
+.jumbotron {
+    background-color: #ba8add;
+    color: floralwhite
+}
+.a:hover{
+    text-decoration-line: none
+}
+.tab-content {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 10px
+}
+.carousel {
+    background:#512DA8;
+}
+
+.carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+#carouselButton {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    z-index: 1
+}

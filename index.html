@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- build:css css/main.css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- endbuild -->
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -27,7 +29,7 @@
                     <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card"></span> Contact</a></li>
                 </ul>
                 <span class="navbar-text">
-                    <a href="" class="a" data-toggle="modal" data-target="#loginmodal">
+                    <a href="" class="a" id="login">
                         <span class="fa fa-sign-in"></span>Login
                     </a>
                 </span>
@@ -39,7 +41,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">LOGIN</h3>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="close-log">
                         &times;
                     </button>
                 </div>
@@ -63,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" id="cancel-log">Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
                         </div>
                     </form>
@@ -82,7 +84,7 @@
                     <img src="img/logo.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a class="a"><button class="btn btn-lg btn-block btn-warning" type="button" data-toggle="modal" data-target="#reservemodal">Reserve Table</button></a>
+                    <a class="a"><button class="btn btn-lg btn-block btn-warning" type="button" id="reserveButton">Reserve Table</button></a>
                 </div>
             </div>
         </div>
@@ -92,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">RESERVE TABLE</h3>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="close-reserve">
                         &times;
                     </button>
                 </div>
@@ -155,7 +157,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-auto offset-sm-2">
-                                <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-secondary btn-lg" id="cancel-reserve">Cancel</button>
                                 <button class="btn btn-primary btn-lg" type="submit">Reserve</button>
                             </div>
                         </div>
@@ -358,29 +360,13 @@
             </div>
         </div>
     </footer>
+    <!-- build:js js/main.js -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $("#mycarousel").carousel( { interval: 1000 } );
-            $("#carouselButton").click(function(){
-                if($("#carouselButton").children("span").hasClass('fa-pause'))
-                    {
-                        $("#mycarousel").carousel('pause');
-                        $("#carouselButton").children("span").removeClass('fa-pause');
-                        $("#carouselButton").children("span").addClass('fa-play');
-                    }
-                else if($("#carouselButton").children("span").hasClass('fa-play'))
-                    {
-                        $("#mycarousel").carousel('cycle');
-                        $("#carouselButton").children("span").removeClass('fa-play');
-                        $("#carouselButton").children("span").addClass('fa-pause');
-                    }
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
